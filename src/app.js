@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { Chess } from './chess';
 import { enPassant, castling, pawnTransform, mat, pat } from './rules';
 import { Gen } from './tools';
+import './less/style.less';
 
 $(window).on('load', function() {
 	var chess = new Chess({

@@ -6,10 +6,11 @@
  * Here are stored all the boxes of the game
  * 
  */
-import * as Backbone from 'backbone';
-import * as _ from 'underscore';
+import Backbone from 'backbone';
+import _ from 'underscore';
 import { ChessBox } from './ChessBox';
 import { Tools, COLOR, P_HEX, Gen } from './tools';
+import { Move } from './Plugin';
 
 export const ChessBoard = Backbone.Collection.extend({
 	model                 : ChessBox,

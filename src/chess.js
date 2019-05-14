@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
-import { COLOR } from './tools';
+import { COLOR, Tools } from './tools';
 import { ChessView } from './ChessView';
 import { MoveView, EatenView } from './Plugin';
 

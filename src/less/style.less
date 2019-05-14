@@ -1,0 +1,222 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+	overflow-y: hidden;
+}
+
+#chess2 {
+	margin: 0px auto 0px auto;
+}
+
+#board {
+	margin-left: auto;
+	margin-right: auto;
+	width: 532px;
+	height: 532px;
+	padding: 0;
+	border: solid 10px #bc4a04;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	& > div {
+		color: black;
+	}
+
+	div div {
+		font-size: 300%;
+		text-align: center;
+		z-index: 999;
+		cursor: pointer;
+	}
+}
+
+header {
+	height: 10vh;
+	margin-bottom: 5px;
+	border-bottom: 1px solid white;
+}
+
+footer {
+	height: 0px;
+	padding: 0;
+}
+
+.Noir {
+	color: black;
+}
+
+#myModal {
+	color: black;
+}
+
+.Blanc {
+	color: white;
+}
+
+pre {
+	font-size: 1.2em;
+	font-family: "Helvetica", sans-serif;
+}
+
+.box {
+	text-align: center;
+	vertical-align: central;
+	font-weight: bold;
+}
+
+#choose {
+	div {
+		border: 1px solid transparent;
+		cursor: pointer;
+
+		&:hover {
+			border: 1px solid gray;
+		}
+	}
+}
+
+#lst_coups,
+#eaten {
+	font-size: 2em;
+	height: 70vh;
+	overflow-y: scroll;
+}
+
+#lst_coups > p {
+	width: 100%;
+}
+
+#eaten {
+	width: 90%;
+	word-wrap: break-word;
+
+	overflow-x: no-content;
+}
+
+#lst_coups > p:first-child {
+	background: #2eaccf;
+}
+
+.chessbox {
+	display: inline-block;
+	font-size: 3em;
+	width: 64px;
+	height: 64px;
+}
+
+.up_letter {
+	position: absolute;
+	width: 64px;
+	height: 16px;
+	text-align: center;
+	color: black;
+	font-size: 2em;
+}
+
+.side_number {
+	position: absolute;
+	width: 16px;
+	height: 64px;
+	text-align: center;
+	color: black;
+	font-size: 2em;
+}
+
+.white_box {
+	// background-image: url('../images/Projets/white_box.jpg');
+	background-color: #5b0907;
+}
+
+.black_box {
+	// background-image: url('../images/Projets/black_box.jpg');
+	background-color: #ecbe8c;
+}
+
+@media (max-width: 970px) {
+	#eaten,
+	#chess2 h3,
+	#lst_coups {
+		display: none;
+	}
+
+	#chess2 {
+		width: 100%;
+	}
+
+	#board {
+		left: 0;
+		bottom: 0;
+		margin: 0 auto;
+	}
+}
+
+// General style
+body {
+	color: #fff;
+	font-size: 13px;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+body,
+footer,
+header,
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+#main_container {
+	position: relative;
+	width: 100vw;
+	overflow-x: hidden;
+	height: 500px;
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+.clr {
+	clear: both;
+}
+
+.content {
+	text-align: center;
+	position: relative;
+	width: 780px;
+	margin: 0 auto;
+}
+
+header {
+	background-color: rgba(255, 255, 255, 0.09);
+	margin: 0px;
+	padding: 5px;
+
+	& > h1 {
+		margin: 0px;
+	}
+}
+
+.row {
+	width: 100%;
+}
+
+footer {
+	width: 100% !important;
+	height: 60px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0.09);
+	padding: 20px;
+}

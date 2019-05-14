@@ -2,7 +2,8 @@
  * Model ion that save a move made during the game
  */
 import Backbone from 'backbone';
-import { PIECES_CHAR, Tools, COLOR } from './tools';
+import { PIECES_CHAR, Tools, COLOR, P_HEX } from './tools';
+import $ from 'jquery';
 
 export const Move = Backbone.Model.extend({
 	defaults        : {
