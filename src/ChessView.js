@@ -14,7 +14,7 @@ import { Tools } from './tools';
 import { ChessBoard } from './ChessBoard';
 
 export const ChessView = Backbone.View.extend({
-	el               : '#board',
+	id               : 'board',
 	//Get the selected item
 	selected         : undefined,
 	/**
@@ -24,16 +24,16 @@ export const ChessView = Backbone.View.extend({
      * @param {boolean} random if the generation of the chessBoard must be random or not
      */
 	start            : function(genOption, random) {
+		this.board = $('#board');
 		this.chessBoard = new ChessBoard();
 		this.chessBoard.createBoard(genOption, random);
 		this.initChessBoard();
-		return;
 	},
 	/**
      * Addind the tiles to the view
      */
 	initChessBoard   : function() {
-		this.$el.text('');
+		this.board.text('');
 		var counter = 0;
 
 		for (var i = 0; i < 8; i++) {
@@ -45,7 +45,7 @@ export const ChessView = Backbone.View.extend({
 					id    : counter,
 					class : 'box chessbox ' + ((i + j) & 1 ? 'black_box' : 'white_box')
 				});
-				this.$el.append(sq);
+				sq.appendTo(this.board);
 				counter++;
 			}
 		}
@@ -68,9 +68,9 @@ export const ChessView = Backbone.View.extend({
      */
 	renderPiece      : function(div_id, piece_code) {
 		if (!_.isUndefined(piece_code) && piece_code !== 0) {
-			this.$el.find('#' + div_id).html(Tools.getHtmlName(piece_code)).css({ cursor: 'pointer' });
+			this.board.find('#' + div_id).html(Tools.getHtmlName(piece_code)).css({ cursor: 'pointer' });
 		} else if (!_.isUndefined(piece_code) && piece_code === 0) {
-			this.$el.find('#' + div_id).html('').css({ cursor: 'default' });
+			this.board.find('#' + div_id).html('').css({ cursor: 'default' });
 		}
 	},
 	/**
@@ -132,11 +132,8 @@ export const ChessView = Backbone.View.extend({
      * 
      */
 	resetChoice      : function() {
-		_.each(this.$el.children(), function(value) {
-			$(value).css({
-				border : 'none',
-				cursor : 'default'
-			});
+		_.each(this.board.children(), function(value) {
+			$(value).removeClass('selectedBox', 'currentBox');
 		});
 		return;
 	},
@@ -149,15 +146,12 @@ export const ChessView = Backbone.View.extend({
 		var self = this;
 		_.each(boxes, function(value) {
 			var id = value.id;
-			var border = '5px solid green';
+			var className = 'selectedBox';
 			if (value.getCurrent() !== 0 && !Tools.sameColor(value.getCurrent(), self.turn)) {
-				border = '5px solid red';
+				className = 'threatBox';
 			}
 
-			$('#' + id).css({
-				border : border,
-				cursor : 'pointer'
-			});
+			$('#' + id).addClass(className);
 		});
 		return;
 	},
@@ -171,9 +165,7 @@ export const ChessView = Backbone.View.extend({
 	firstClick       : function(indexSelected, mCase, turn) {
 		this.state = 'first';
 		this.resetChoice();
-		$('#' + indexSelected).css({
-			border : '5px dotted green'
-		});
+		$('#' + indexSelected).addClass('currentBox');
 
 		this.proposeChoice(mCase.getCurrent());
 		this.selected = indexSelected;
@@ -198,18 +190,14 @@ export const ChessView = Backbone.View.extend({
      * @param {integer} turn current turns color
      */
 	hilightChessKing : function(turn) {
-		_.each(this.$el.children(), function(value) {
-			$(value).css({
-				'background-color' : ''
-			});
+		_.each(this.board.children(), function(value) {
+			$(value).removeClass('begunBox');
 		});
 		var color = Tools.getInvertColor(turn);
 		if (this.chessBoard.myKingIsChess(color)) {
 			var indexKing = this.chessBoard.findColorKing(color);
 			if (indexKing >= 0) {
-				$('#' + indexKing).css({
-					'background-color' : 'red'
-				});
+				$('#' + indexKing).addClass('begunBox');
 			}
 		}
 		return;

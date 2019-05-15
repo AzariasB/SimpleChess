@@ -5,7 +5,7 @@ import { enPassant, castling, pawnTransform, mat, pat } from './rules';
 import { Gen } from './tools';
 import './less/style.less';
 
-$(window).on('load', function() {
+$(document).ready(function() {
 	var chess = new Chess({
 		rules            : [ enPassant, castling, pawnTransform, mat, pat ],
 		generationOption : Gen.boardOptions.normalBoard,

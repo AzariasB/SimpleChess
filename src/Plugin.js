@@ -163,10 +163,6 @@ export const MoveView = Backbone.View.extend({
 			html : lastMove.getString()
 		});
 		this.$el.prepend($p);
-	},
-	rollBack    : function() {
-		this.$el.children().first().remove();
-		return this.moves.removeLastMove();
 	}
 });
 

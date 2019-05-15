@@ -3,7 +3,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import { COLOR, Tools } from './tools';
 import { ChessView } from './ChessView';
-import { MoveView, EatenView } from './Plugin';
+import { MoveView, EatenView, Eaten } from './Plugin';
 
 var Game = Backbone.View.extend({
 	el           : '#chess2',
@@ -65,22 +65,6 @@ var Game = Backbone.View.extend({
 	switchTurn   : function() {
 		this.turn = Tools.getInvertColor(this.turn);
 	}
-	/*rollBack: function () {
-     var eat;
-     var lastMove = this.moves.rollBack();
-     eat = lastMove && lastMove.get("eat") && this.eaten.rollBack();
-     if (lastMove) {
-     var before = lastMove.get("to");
-     var after = lastMove.get("from");
-     this.board.chessBoard.moveFromTo(before, after, true);
-     if (eat) {
-     this.board.chessBoard.at(eat.get("lastPosition")).setCurrent(eat.get("piece"));
-     }
-     this.board.secondClickEnd();
-     this.numTurn--;
-     this.switchTurn();
-     }
-     },*/
 });
 
 export function Chess() {
