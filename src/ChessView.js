@@ -68,9 +68,9 @@ export const ChessView = Backbone.View.extend({
      */
 	renderPiece      : function(div_id, piece_code) {
 		if (!_.isUndefined(piece_code) && piece_code !== 0) {
-			this.board.find('#' + div_id).html(Tools.getHtmlName(piece_code)).css({ cursor: 'pointer' });
+			this.board.find('#' + div_id).html(Tools.getHtmlName(piece_code)).addClass('pieceBox');
 		} else if (!_.isUndefined(piece_code) && piece_code === 0) {
-			this.board.find('#' + div_id).html('').css({ cursor: 'default' });
+			this.board.find('#' + div_id).html('');
 		}
 	},
 	/**
@@ -133,7 +133,10 @@ export const ChessView = Backbone.View.extend({
      */
 	resetChoice      : function() {
 		_.each(this.board.children(), function(value) {
-			$(value).removeClass('selectedBox', 'currentBox');
+			$(value).removeClass([ 'selectedBox', 'currentBox', 'pieceBox', 'threatBox', 'begunBox' ]);
+			if (!_.isEmpty($(value).text())) {
+				$(value).addClass('pieceBox');
+			}
 		});
 		return;
 	},

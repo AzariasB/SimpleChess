@@ -18,12 +18,15 @@ html {
 }
 
 #board {
+	font-size: 0px;
 	margin-left: auto;
 	margin-right: auto;
 	width: 532px;
 	height: 532px;
+	flex-wrap: wrap;
 	padding: 0;
 	border: solid 10px #bc4a04;
+	display: flex;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -41,6 +44,57 @@ html {
 		z-index: 999;
 		cursor: pointer;
 	}
+
+	.selectedBox {
+		border: 5px solid green;
+		cursor: pointer;
+	}
+
+	.threatBox {
+		border: 5px solid red;
+	}
+
+	.currentBox {
+		border: 5px dotted green;
+	}
+
+	.pieceBox {
+		cursor: pointer;
+	}
+
+	.begunBox {
+		background-color: red;
+	}
+
+	.Noir {
+		color: black;
+	}
+
+	.Blanc {
+		color: white;
+	}
+
+	.box {
+		font-size: 50px;
+		text-align: center;
+	}
+
+	.chessbox {
+		width: 64px;
+		height: 64px;
+	}
+}
+
+.white_box {
+	// background-image: url('../images/Projets/white_box.jpg');
+	background-color: #5b0907;
+	border: 5px solid #5b0907;
+}
+
+.black_box {
+	// background-image: url('../images/Projets/black_box.jpg');
+	background-color: #ecbe8c;
+	border: 5px solid #ecbe8c;
 }
 
 header {
@@ -54,43 +108,13 @@ footer {
 	padding: 0;
 }
 
-.begunBox {
-	background-color: red;
-}
-
-.selectedBox {
-	border: 5px solid green;
-}
-
-.threatBox {
-	border: 5px solid red;
-}
-
-.currentBox {
-	border: 5px dotted green;
-}
-
-.Noir {
-	color: black;
-}
-
 #myModal {
 	color: black;
-}
-
-.Blanc {
-	color: white;
 }
 
 pre {
 	font-size: 1.2em;
 	font-family: 'Comfortaa', cursive;
-}
-
-.box {
-	text-align: center;
-	vertical-align: central;
-	font-weight: bold;
 }
 
 #choose {
@@ -126,13 +150,6 @@ pre {
 	background: #2eaccf;
 }
 
-.chessbox {
-	display: inline-block;
-	font-size: 3em;
-	width: 64px;
-	height: 64px;
-}
-
 .up_letter {
 	position: absolute;
 	width: 64px;
@@ -149,16 +166,6 @@ pre {
 	text-align: center;
 	color: black;
 	font-size: 2em;
-}
-
-.white_box {
-	// background-image: url('../images/Projets/white_box.jpg');
-	background-color: #5b0907;
-}
-
-.black_box {
-	// background-image: url('../images/Projets/black_box.jpg');
-	background-color: #ecbe8c;
 }
 
 @media (max-width: 970px) {
